@@ -84,7 +84,7 @@ namespace MediStockWeb.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(MedicineModel model)
+        public IActionResult Create(MedicineModel model, bool continueEditing)
         {
             Medicine obj = new Medicine();
 
@@ -150,7 +150,9 @@ namespace MediStockWeb.Areas.Admin.Controllers
                 Description = medicineModel.Description,
                 ExpiryDate = medicineModel.ExpiryDate,
                 IsActive = medicineModel.IsActive,
-                IsDeleted = false
+                IsDeleted = false,
+                Stock = medicineModel.Stock,
+                CategoryName = medicineModel.CategoryName,
             };
 
             return View(model);
